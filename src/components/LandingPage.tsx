@@ -41,9 +41,6 @@ const LandingPage = () => {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <a href="/dashboard" className="hidden sm:block text-inviteease-textSecondary hover:text-inviteease-primary font-semibold transition-colors px-4 py-2">
-                            Dashboard
-                        </a>
                         <button className="bg-inviteease-primary hover:bg-inviteease-primaryLight text-white font-bold px-6 py-2.5 rounded-full transition-all shadow-lg shadow-teal-700/20 active:scale-95">
                             Get Started
                         </button>
