@@ -7,19 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        'inviteease': {
-          primary: 'rgba(15, 118, 110, 1)',      // Deep teal
-          primaryLight: 'rgba(20, 184, 166, 1)', // Bright teal
-          primaryDark: 'rgba(13, 90, 82, 1)',   // Dark teal
-          secondary: 'rgba(71, 85, 105, 1)',    // Slate
-          warning: 'rgba(245, 158, 11, 1)',     // Amber
-          warningLight: 'rgba(251, 191, 36, 1)',// Light amber
-          text: 'rgba(30, 41, 59, 1)',          // Dark slate (primary text)
-          textSecondary: 'rgba(100, 116, 139, 1)', // Medium gray
-          bgDefault: 'rgba(248, 250, 252, 1)',
-          bgLight: 'rgba(241, 245, 249, 1)',
-          border: 'rgba(226, 232, 240, 1)',
-        }
+        'inviteease-primary': 'rgba(15, 118, 110, 1)',
+        'inviteease-primaryLight': 'rgba(20, 184, 166, 1)',
+        'inviteease-primaryDark': 'rgba(13, 90, 82, 1)',
+        'inviteease-secondary': 'rgba(71, 85, 105, 1)',
+        'inviteease-warning': 'rgba(245, 158, 11, 1)',
+        'inviteease-warningLight': 'rgba(251, 191, 36, 1)',
+        'inviteease-text': 'rgba(30, 41, 59, 1)',
+        'inviteease-textSecondary': 'rgba(100, 116, 139, 1)',
+        'inviteease-bgDefault': 'rgba(248, 250, 252, 1)',
+        'inviteease-bgLight': 'rgba(241, 245, 249, 1)',
+        'inviteease-border': 'rgba(226, 232, 240, 1)',
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, rgba(15, 118, 110, 1) 0%, rgba(34, 197, 94, 1) 100%)',

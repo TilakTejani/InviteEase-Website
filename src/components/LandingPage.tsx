@@ -27,9 +27,9 @@ const LandingPage = () => {
             <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-lg border-b border-inviteease-border py-2 shadow-sm' : 'bg-transparent py-4'
                 }`}>
                 <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-                    <div className="flex items-center gap-3 group cursor-pointer">
-                        <div className="w-10 h-10 bg-inviteease-bgLight rounded-xl flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105">
-                            <img src="/logo_no_bg.png" alt="InviteEase Logo" className="w-8 h-8 object-contain" />
+                    <div className="flex items-center gap-4 group cursor-pointer">
+                        <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105 border border-inviteease-border shadow-sm p-1">
+                            <img src="/logo_no_bg.png" alt="InviteEase Logo" className="w-full h-full object-contain" />
                         </div>
                         <span className="text-2xl font-bold tracking-tight text-inviteease-text">InviteEase</span>
                     </div>
