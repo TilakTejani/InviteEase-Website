@@ -1,0 +1,57 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'inviteease': {
+          primary: 'rgba(15, 118, 110, 1)',      // Deep teal
+          primaryLight: 'rgba(20, 184, 166, 1)', // Bright teal
+          primaryDark: 'rgba(13, 90, 82, 1)',   // Dark teal
+          secondary: 'rgba(71, 85, 105, 1)',    // Slate
+          warning: 'rgba(245, 158, 11, 1)',     // Amber
+          warningLight: 'rgba(251, 191, 36, 1)',// Light amber
+          text: 'rgba(30, 41, 59, 1)',          // Dark slate (primary text)
+          textSecondary: 'rgba(100, 116, 139, 1)', // Medium gray
+          bgDefault: 'rgba(248, 250, 252, 1)',
+          bgLight: 'rgba(241, 245, 249, 1)',
+          border: 'rgba(226, 232, 240, 1)',
+        }
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(135deg, rgba(15, 118, 110, 1) 0%, rgba(34, 197, 94, 1) 100%)',
+        'gradient-warning': 'linear-gradient(135deg, rgba(245, 158, 11, 1) 0%, rgba(251, 191, 36, 1) 100%)',
+        'gradient-main': 'linear-gradient(135deg, rgba(241, 245, 249, 1) 0%, rgba(248, 250, 252, 1) 50%, rgba(241, 245, 249, 1) 100%)',
+        'gradient-appbar': 'linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(241, 245, 249, 0.95) 100%)',
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-out forwards',
+        'slide-up': 'slideUp 0.5s ease-out forwards',
+        'float': 'float 3s ease-in-out infinite',
+        'tropical-glow': 'tropical-glow 2s infinite alternate',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'tropical-glow': {
+          '0%': { boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.2)' },
+          '100%': { boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.5)' },
+        }
+      }
+    },
+  },
+  plugins: [],
+}
