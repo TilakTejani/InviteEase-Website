@@ -38,7 +38,7 @@ const LandingPage = () => {
                     <div className="hidden md:flex items-center gap-8">
                         <NavLink href="#features">Features</NavLink>
                         <NavLink href="#how-it-works">How it works</NavLink>
-                        <NavLink href="#pricing">Pricing</NavLink>
+                        <Link to="/pricing" className="text-inviteease-textSecondary hover:text-inviteease-primary font-bold transition-colors">Pricing</Link>
                         <Link to="/contact" className="text-inviteease-textSecondary hover:text-inviteease-primary font-bold transition-colors">Contact</Link>
                         <Link to="/download" className="text-inviteease-textSecondary hover:text-inviteease-primary font-bold transition-colors">Download</Link>
                     </div>
@@ -178,6 +178,7 @@ const LandingPage = () => {
                         <div className="flex flex-wrap justify-center gap-8 text-inviteease-textSecondary font-bold text-sm">
                             <a href="#features" className="hover:text-inviteease-primary transition-colors cursor-pointer">Features</a>
                             <a href="#how-it-works" className="hover:text-inviteease-primary transition-colors cursor-pointer">Automation</a>
+                            <Link to="/pricing" className="hover:text-inviteease-primary transition-colors">Pricing</Link>
                             <Link to="/contact" className="hover:text-inviteease-primary transition-colors">Contact Support</Link>
                             <a className="hover:text-inviteease-primary transition-colors cursor-pointer">Privacy Policy</a>
                         </div>

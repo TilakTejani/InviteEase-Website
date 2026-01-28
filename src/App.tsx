@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage';
 const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
 const ContactUs = lazy(() => import('./components/ContactUs'));
 const DownloadPage = lazy(() => import('./components/DownloadPage'));
+const PricingPage = lazy(() => import('./components/PricingPage'));
 import './index.css';
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
 
           {/* Download Page */}
           <Route path="/download" element={<DownloadPage />} />
+
+          {/* Pricing Page */}
+          <Route path="/pricing" element={<PricingPage />} />
 
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />
