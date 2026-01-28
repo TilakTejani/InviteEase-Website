@@ -6,7 +6,6 @@ import {
     Send,
     FileText,
     PlayCircle,
-    ImageIcon,
     Shield,
     ChevronRight
 } from 'lucide-react';
@@ -81,10 +80,6 @@ const LandingPage = () => {
                                     Download for Desktop
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Link>
-                                <button className="w-full sm:w-auto bg-white border border-inviteease-border px-10 py-5 rounded-2xl font-bold text-lg hover:bg-inviteease-bgLight transition-all flex items-center justify-center gap-3 shadow-sm text-inviteease-text">
-                                    <ImageIcon className="w-5 h-5 text-inviteease-warning fill-inviteease-warning" />
-                                    View Demo
-                                </button>
                             </div>
                         </motion.div>
 
