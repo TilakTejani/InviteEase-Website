@@ -53,11 +53,17 @@ const DownloadPage = () => {
                         <p className="text-inviteease-textSecondary mb-8 text-lg font-medium leading-relaxed">
                             Optimized for Apple Silicon (M1/M2/M3) and Intel Macs. Requires macOS 11.0 or later.
                         </p>
-                        <button className="w-full bg-slate-900 hover:bg-black text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-slate-900/10 active:scale-[0.98]">
-                            <Download size={20} />
-                            Download for Mac (.dmg)
-                        </button>
-                        <p className="mt-4 text-center text-sm text-inviteease-textSecondary font-medium">Version 2.0.4 • 65MB</p>
+                        <div className="flex flex-col gap-4">
+                            <button className="w-full bg-slate-900 hover:bg-black text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-slate-900/10 active:scale-[0.98]">
+                                <Download size={20} />
+                                Apple Silicon (M1/M2/M3)
+                            </button>
+                            <button className="w-full bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-50 font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all active:scale-[0.98]">
+                                <Download size={20} />
+                                Intel Chip
+                            </button>
+                        </div>
+                        <p className="mt-6 text-center text-sm text-inviteease-textSecondary font-medium">Version 2.0.4 • 65MB • .dmg</p>
                     </motion.div>
 
                     {/* Windows Download */}
