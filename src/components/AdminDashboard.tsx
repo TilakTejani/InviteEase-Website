@@ -13,6 +13,7 @@ import {
     Plus,
     ArrowUpRight
 } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 const AdminDashboard = () => {
     const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -34,7 +35,7 @@ const AdminDashboard = () => {
                     </div>
                     {sidebarOpen && (
                         <div className="flex flex-col">
-                            <span className="font-bold text-lg leading-tight tracking-tight">InviteEase</span>
+                            <BrandLogo size="md" />
                             <span className="text-[10px] font-bold text-inviteease-textSecondary uppercase tracking-widest">Admin Panel</span>
                         </div>
                     )}

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Apple, Cpu, ArrowLeft, Download, Monitor, ShieldCheck, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import BrandLogo from './BrandLogo';
 
 const DownloadPage = () => {
     return (
@@ -16,7 +17,7 @@ const DownloadPage = () => {
                         <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center border border-inviteease-border shadow-sm p-1">
                             <img src="/logo_no_bg.png" alt="Logo" className="w-full h-full object-contain" />
                         </div>
-                        <span className="font-bold text-xl tracking-tight">InviteEase</span>
+                        <BrandLogo size="lg" />
                     </div>
                 </div>
             </nav>
@@ -28,7 +29,7 @@ const DownloadPage = () => {
                     className="text-center mb-16"
                 >
                     <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
-                        Download <span className="text-gradient-linear">InviteEase</span>
+                        Download <BrandLogo size="xl" />
                     </h1>
                     <p className="text-xl text-inviteease-textSecondary max-w-2xl mx-auto leading-relaxed">
                         Get the professional campaign management platform on your desktop for the best experience.

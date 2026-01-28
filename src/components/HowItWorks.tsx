@@ -6,14 +6,14 @@ import {
     Send,
     ArrowLeft,
     Shield,
-    PlayCircle,
-    FileText,
     Type,
     FileSearch,
     Cpu,
-    Lock
+    Lock,
+    BarChart3
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import BrandLogo from './BrandLogo';
 
 const HowItWorks = () => {
     const steps = [
@@ -45,7 +45,7 @@ const HowItWorks = () => {
             id: "delivery",
             icon: <Send size={32} />,
             title: "4. Multi-filetype Automated Delivery",
-            desc: "Deliver custom PDFs, HD Videos, and Images in a unified automated workflow. InviteEase sends everything directly to WhatsApp numbers at scale, ensuring your campaign reaches its audience instantly.",
+            desc: "Deliver custom PDFs, HD Videos, and Images in a unified automated workflow. Our system sends everything directly to WhatsApp numbers at scale, ensuring your campaign reaches its audience instantly.",
             color: "text-green-600",
             bg: "bg-green-50"
         }
@@ -64,27 +64,27 @@ const HowItWorks = () => {
                         <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center border border-inviteease-border shadow-sm p-1">
                             <img src="/logo_no_bg.png" alt="Logo" className="w-full h-full object-contain" />
                         </div>
-                        <span className="font-bold text-xl tracking-tight">InviteEase</span>
+                        <BrandLogo size="lg" />
                     </div>
                 </div>
             </nav>
 
-            <main className="max-w-6xl mx-auto px-6 py-20">
+            <main className="max-w-6xl mx-auto px-6 py-12">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-center mb-24"
+                    className="text-center mb-16"
                 >
                     <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight text-inviteease-text">
-                        The <span className="text-gradient-linear">InviteEase</span> Workflow
+                        The <BrandLogo size="xl" /> Workflow
                     </h1>
                     <p className="text-xl text-inviteease-textSecondary max-w-3xl mx-auto leading-relaxed font-medium">
-                        A comprehensive look at how we automate your professional campaign delivery from design to distribution.
+                        Automating your professional campaign delivery from design to distribution.
                     </p>
                 </motion.div>
 
                 {/* Steps Section */}
-                <div className="space-y-16">
+                <div className="space-y-10">
                     {steps.map((step, index) => (
                         <motion.div
                             key={index}
@@ -92,7 +92,7 @@ const HowItWorks = () => {
                             initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className={`flex flex-col md:flex-row items-center gap-12 p-10 md:p-16 rounded-[4rem] border border-inviteease-border bg-white shadow-xl shadow-slate-200/50 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''
+                            className={`flex flex-col md:flex-row items-center gap-10 p-8 md:p-12 rounded-[3.5rem] border border-inviteease-border bg-white shadow-xl shadow-slate-200/50 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''
                                 }`}
                         >
                             <div className={`w-28 h-28 shrink-0 rounded-[2.5rem] flex items-center justify-center ${step.bg} ${step.color} shadow-inner`}>
@@ -108,12 +108,35 @@ const HowItWorks = () => {
                     ))}
                 </div>
 
+                {/* Live Tracking Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-20 p-12 md:p-16 rounded-[3.5rem] bg-white border border-inviteease-border shadow-xl shadow-slate-200/50 relative overflow-hidden group"
+                >
+                    <div className="absolute top-0 right-0 p-12 text-inviteease-warning/5 transition-transform group-hover:scale-110 duration-700">
+                        <BarChart3 size={200} />
+                    </div>
+                    <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
+                        <div className="w-24 h-24 bg-inviteease-warning/10 rounded-3xl flex items-center justify-center text-inviteease-warning shadow-inner">
+                            <BarChart3 size={40} />
+                        </div>
+                        <div className="text-center md:text-left">
+                            <h2 className="text-3xl font-bold mb-4">Live Tracking & Analytics</h2>
+                            <p className="text-xl text-inviteease-textSecondary leading-relaxed max-w-2xl font-medium">
+                                Monitor your campaign's progress in real-time. Track successfully delivered messages, pending items, and overall completion status through our integrated <span className="text-inviteease-warning font-bold">Live Dashboard</span>.
+                            </p>
+                        </div>
+                    </div>
+                </motion.div>
+
                 {/* Security Feature Highlight */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     id="security"
-                    className="mt-32 p-12 md:p-20 rounded-[4rem] bg-gradient-appbar border border-inviteease-border shadow-2xl relative overflow-hidden"
+                    className="mt-20 p-12 md:p-16 rounded-[3.5rem] bg-gradient-appbar border border-inviteease-border shadow-2xl relative overflow-hidden"
                 >
                     <div className="absolute top-0 right-0 p-12 opacity-5">
                         <Shield size={200} />
@@ -132,7 +155,7 @@ const HowItWorks = () => {
                 </motion.div>
 
                 {/* Technical Specs */}
-                <div className="mt-32 grid md:grid-cols-3 gap-8">
+                <div className="mt-20 grid md:grid-cols-3 gap-8">
                     <MediaCard
                         icon={<Cpu size={32} />}
                         title="Native Performance"
@@ -151,20 +174,20 @@ const HowItWorks = () => {
                 </div>
 
                 {/* Final CTA */}
-                <div className="mt-40 text-center py-20">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-12">Ready to experience the automation?</h2>
-                    <div className="flex flex-col sm:flex-row justify-center gap-8">
-                        <Link to="/download" className="bg-inviteease-primary hover:bg-inviteease-primaryLight text-white font-bold px-16 py-6 rounded-3xl shadow-2xl shadow-teal-500/30 transition-all active:scale-95 text-xl">
+                <div className="mt-20 text-center py-12">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-10">Ready to experience the automation?</h2>
+                    <div className="flex flex-col sm:flex-row justify-center gap-6">
+                        <Link to="/download" className="bg-inviteease-primary hover:bg-inviteease-primaryLight text-white font-bold px-12 py-5 rounded-2xl shadow-2xl shadow-teal-500/30 transition-all active:scale-95 text-xl">
                             Download InviteEase
                         </Link>
-                        <Link to="/contact" className="bg-white border border-inviteease-border text-inviteease-text font-bold px-16 py-6 rounded-3xl hover:bg-slate-50 transition-all active:scale-95 text-xl">
+                        <Link to="/contact" className="bg-white border border-inviteease-border text-inviteease-text font-bold px-12 py-5 rounded-2xl hover:bg-slate-50 transition-all active:scale-95 text-xl">
                             Speak to Support
                         </Link>
                     </div>
                 </div>
             </main>
 
-            <footer className="py-16 border-t border-inviteease-border text-center bg-white/50">
+            <footer className="py-12 border-t border-inviteease-border text-center bg-white/50">
                 <p className="text-inviteease-textSecondary font-semibold text-sm">
                     © 2026 InviteEase. Security-first campaign automation.
                 </p>

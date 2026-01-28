@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { motion, animate, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import BrandLogo from './BrandLogo';
 
 const LandingPage = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -32,7 +33,7 @@ const LandingPage = () => {
                         <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105 border border-inviteease-border shadow-sm p-1">
                             <img src="/logo_no_bg.png" alt="InviteEase Logo" className="w-full h-full object-contain" />
                         </div>
-                        <span className="text-2xl font-bold tracking-tight text-inviteease-text">InviteEase</span>
+                        <BrandLogo size="lg" />
                     </div>
 
                     <div className="hidden md:flex items-center gap-8">
@@ -188,7 +189,7 @@ const LandingPage = () => {
                             <img src="/logo_no_bg.png" alt="InviteEase Logo" className="w-full h-full object-contain" />
                         </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-inviteease-text mb-4">InviteEase</h3>
+                    <BrandLogo size="lg" className="mb-4" />
                     <p className="text-inviteease-textSecondary mb-16 max-w-lg mx-auto font-medium">Professional Campaign Management Platform</p>
 
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-inviteease-border pt-12">
