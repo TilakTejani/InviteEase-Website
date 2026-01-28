@@ -124,7 +124,7 @@ const LandingPage = () => {
                         <FeatureCard
                             icon={<Zap />}
                             title="Real-time PDF Customisation"
-                            desc="Instantly inject dynamic user data into PDF invites with high-speed automated generation."
+                            desc="Instantly inject dynamic user data and handle on-the-fly page deletion with high-speed automated generation."
                         />
                         <FeatureCard
                             icon={<CheckCircle2 />}

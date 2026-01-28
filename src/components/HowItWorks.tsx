@@ -16,7 +16,7 @@ const HowItWorks = () => {
         {
             icon: <FileEdit size={32} />,
             title: "1. Design Your Template",
-            desc: "Use our Advanced PDF Editor to upload your invitation template. Map dynamic text fields precisely where you want names, dates, or custom messages to appear.",
+            desc: "Use our Advanced PDF Editor to upload your invitation template. Map dynamic text fields for names, number of persons, dates, or custom messages exactly where you want them to appear.",
             color: "text-blue-600",
             bg: "bg-blue-50"
         },
@@ -30,7 +30,7 @@ const HowItWorks = () => {
         {
             icon: <Zap size={32} />,
             title: "3. Real-time Customisation",
-            desc: "Our engine generates personalised PDFs on-the-fly. It injects your data and custom fonts into the templates with millisecond precision.",
+            desc: "Our engine generates personalised PDFs on-the-fly, injecting your data and custom fonts. It even handles dynamic page deletion for empty values with millisecond precision.",
             color: "text-inviteease-warning",
             bg: "bg-inviteease-warning/10"
         },
