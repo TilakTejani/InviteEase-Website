@@ -1,5 +1,5 @@
 {
-    "name": "inviteease-website",
+    "name": "inviteease",
     "compatibility_date": "2024-01-28",
     "assets": {
         "directory": "./dist"
