@@ -144,7 +144,7 @@ const LandingPage = () => {
                         <FeatureCard
                             icon={<Shield />}
                             title="Enterprise Security"
-                            desc="Bank-grade encryption for all recipient data and campaign assets, ensuring total privacy."
+                            desc="All local data storage ensures no data is stored outside of your reach, providing total privacy and control."
                         />
                     </div>
                 </div>
@@ -211,9 +211,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, desc }) => (
         </div>
         <h3 className="text-2xl font-bold mb-4 text-inviteease-text">{title}</h3>
         <p className="text-inviteease-textSecondary leading-relaxed font-medium">{desc}</p>
-        <div className="mt-8 flex items-center text-inviteease-primary font-bold group-hover:gap-2 transition-all cursor-pointer">
+        <Link to="/how-it-works" className="mt-8 flex items-center text-inviteease-primary font-bold group-hover:gap-2 transition-all cursor-pointer">
             Learn more <ChevronRight className="w-4 h-4" />
-        </div>
+        </Link>
     </div>
 );
 
