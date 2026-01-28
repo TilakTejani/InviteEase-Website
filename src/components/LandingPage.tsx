@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
     ArrowRight,
     CheckCircle2,
@@ -10,7 +10,7 @@ import {
     Shield,
     ChevronRight
 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, animate, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
@@ -95,14 +95,25 @@ const LandingPage = () => {
                         >
                             <div className="relative z-10 p-4 bg-white/50 backdrop-blur-sm rounded-[2.5rem] border border-white/50 shadow-2xl overflow-hidden animate-tropical-glow">
                                 <img
-                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
-                                    alt="Dashboard Preview"
+                                    src="/dashboard_preview.png"
+                                    alt="InviteEase Dashboard Preview"
                                     className="rounded-[2rem] shadow-2xl border border-white/50"
                                 />
                             </div>
                             <div className="absolute -top-10 -right-10 w-40 h-40 bg-inviteease-primaryLight/30 rounded-full blur-3xl"></div>
                             <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-amber-500/20 rounded-full blur-3xl"></div>
                         </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Stats Section */}
+            <section className="py-24 bg-white border-y border-inviteease-border overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center items-center">
+                        <StatItem value={10000} label="Invitations Sent" suffix="+" />
+                        <StatItem value={20} label="Campaigns Managed" suffix="+" />
+                        <StatItem value={2} label="Years of Experience" suffix="+" />
                     </div>
                 </div>
             </section>
@@ -223,5 +234,46 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, desc, link = "/h
         </Link>
     </div>
 );
+
+const StatItem = ({ value, label, suffix }: { value: number; label: string; suffix: string }) => {
+    const [displayValue, setDisplayValue] = useState(0);
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+
+    useEffect(() => {
+        if (isInView) {
+            const controls = animate(0, value, {
+                duration: 2,
+                ease: "easeOut",
+                onUpdate: (v) => setDisplayValue(v)
+            });
+            return () => controls.stop();
+        }
+    }, [value, isInView]);
+
+    const formatValue = (v: number) => {
+        if (v >= 1000) {
+            return (v / 1000).toFixed(v % 1000 === 0 ? 0 : 1) + 'K';
+        }
+        return Math.round(v);
+    };
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            className="flex flex-col gap-3"
+        >
+            <div className="text-6xl font-black text-inviteease-text tracking-tighter">
+                <span className="text-gradient-linear">{formatValue(displayValue)}</span>
+                <span className="text-inviteease-warning">{suffix}</span>
+            </div>
+            <span className="text-inviteease-textSecondary font-bold uppercase tracking-[0.2em] text-xs">
+                {label}
+            </span>
+        </motion.div>
+    );
+};
 
 export default LandingPage;
