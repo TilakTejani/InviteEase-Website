@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 
 const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
+const ContactUs = lazy(() => import('./components/ContactUs'));
 import './index.css';
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
           {/* Administrative Dashboard */}
           <Route path="/dashboard" element={<AdminDashboard />} />
           <Route path="/admin" element={<Navigate to="/dashboard" replace />} />
+
+          {/* Contact Us Page */}
+          <Route path="/contact" element={<ContactUs />} />
 
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />

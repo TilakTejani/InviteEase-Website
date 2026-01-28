@@ -11,6 +11,7 @@ import {
     ChevronRight
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -38,6 +39,7 @@ const LandingPage = () => {
                         <NavLink href="#features">Features</NavLink>
                         <NavLink href="#how-it-works">How it works</NavLink>
                         <NavLink href="#pricing">Pricing</NavLink>
+                        <Link to="/contact" className="text-inviteease-textSecondary hover:text-inviteease-primary font-bold transition-colors">Contact</Link>
                     </div>
 
                     <div className="flex items-center gap-4">
@@ -172,9 +174,11 @@ const LandingPage = () => {
 
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-inviteease-border pt-12">
                         <p className="text-inviteease-textSecondary text-sm font-medium">© 2026 InviteEase. All rights reserved.</p>
-                        <div className="flex gap-12 text-inviteease-textSecondary font-bold text-sm">
-                            <a className="hover:text-inviteease-primary cursor-pointer transition-colors">Privacy Policy</a>
-                            <a className="hover:text-inviteease-primary cursor-pointer transition-colors">Terms & Conditions</a>
+                        <div className="flex flex-wrap justify-center gap-8 text-inviteease-textSecondary font-bold text-sm">
+                            <a href="#features" className="hover:text-inviteease-primary transition-colors cursor-pointer">Features</a>
+                            <a href="#how-it-works" className="hover:text-inviteease-primary transition-colors cursor-pointer">Automation</a>
+                            <Link to="/contact" className="hover:text-inviteease-primary transition-colors">Contact Support</Link>
+                            <a className="hover:text-inviteease-primary transition-colors cursor-pointer">Privacy Policy</a>
                         </div>
                     </div>
                 </div>
