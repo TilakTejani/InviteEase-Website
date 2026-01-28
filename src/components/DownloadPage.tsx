@@ -82,6 +82,10 @@ const DownloadPage = () => {
                         <h2 className="text-3xl font-bold mb-4">Windows</h2>
                         <p className="text-inviteease-textSecondary mb-8 text-lg font-medium leading-relaxed">
                             Compatible with Windows 10 and 11 (64-bit). Built for performance and stability.
+                            <br />
+                            <span className="text-sm font-bold mt-2 inline-block text-amber-600 italic">
+                                Note: For better performance, minimum 8GB RAM is needed.
+                            </span>
                         </p>
                         <button className="w-full bg-inviteease-primary hover:bg-inviteease-primaryLight text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-teal-700/10 active:scale-[0.98]">
                             <Download size={20} />
