@@ -118,32 +118,32 @@ const LandingPage = () => {
                         <FeatureCard
                             icon={<Layers />}
                             title="Advanced PDF Editor"
-                            desc="Professional annotation tools with intelligent text field mapping for any invite template."
+                            desc="Professional annotation tools with precise field mapping and layer management for any template."
                         />
                         <FeatureCard
                             icon={<Zap />}
-                            title="Bulk Automation"
-                            desc="Intelligent campaign delivery with queue management and rate limiting for safety."
-                        />
-                        <FeatureCard
-                            icon={<MessageSquare />}
-                            title="WhatsApp Integration"
-                            desc="Secure QR authentication with session persistence for multiple WhatsApp profiles."
+                            title="Real-time PDF Customisation"
+                            desc="Instantly inject dynamic user data into PDF invites with high-speed automated generation."
                         />
                         <FeatureCard
                             icon={<CheckCircle2 />}
-                            title="Real-time Analytics"
-                            desc="Detailed insight and reporting for campaign performance and delivery tracking."
+                            title="Custom Font Support"
+                            desc="Upload and use any font files directly to maintain perfect brand consistency across all assets."
+                        />
+                        <FeatureCard
+                            icon={<Globe />}
+                            title="Multi-filetype Automation"
+                            desc="Seamlessly automate campaigns featuring Images, Videos, and PDFs in a unified workflow."
+                        />
+                        <FeatureCard
+                            icon={<MessageSquare />}
+                            title="Dynamic Advanced Captioning"
+                            desc="Personalize every message with intelligent data injection and sophisticated text formatting."
                         />
                         <FeatureCard
                             icon={<Shield />}
                             title="Enterprise Security"
-                            desc="Bank-grade encryption for recipient data and campaign assets at all times."
-                        />
-                        <FeatureCard
-                            icon={<Globe />}
-                            title="Global Delivery"
-                            desc="Automatic formatting for international numbers and localized campaign templates."
+                            desc="Bank-grade encryption for all recipient data and campaign assets, ensuring total privacy."
                         />
                     </div>
                 </div>
