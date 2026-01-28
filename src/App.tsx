@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage';
 
 const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
 const ContactUs = lazy(() => import('./components/ContactUs'));
+const DownloadPage = lazy(() => import('./components/DownloadPage'));
 import './index.css';
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
 
           {/* Contact Us Page */}
           <Route path="/contact" element={<ContactUs />} />
+
+          {/* Download Page */}
+          <Route path="/download" element={<DownloadPage />} />
 
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />

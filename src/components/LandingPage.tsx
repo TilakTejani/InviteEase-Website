@@ -40,12 +40,13 @@ const LandingPage = () => {
                         <NavLink href="#how-it-works">How it works</NavLink>
                         <NavLink href="#pricing">Pricing</NavLink>
                         <Link to="/contact" className="text-inviteease-textSecondary hover:text-inviteease-primary font-bold transition-colors">Contact</Link>
+                        <Link to="/download" className="text-inviteease-textSecondary hover:text-inviteease-primary font-bold transition-colors">Download</Link>
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <button className="bg-inviteease-primary hover:bg-inviteease-primaryLight text-white font-bold px-6 py-2.5 rounded-full transition-all shadow-lg shadow-teal-700/20 active:scale-95">
-                            Get Started
-                        </button>
+                        <Link to="/download" className="bg-inviteease-primary hover:bg-inviteease-primaryLight text-white font-bold px-6 py-2.5 rounded-full transition-all shadow-lg shadow-teal-700/20 active:scale-95">
+                            Download Now
+                        </Link>
                     </div>
                 </div>
             </nav>
@@ -76,10 +77,10 @@ const LandingPage = () => {
                             </p>
 
                             <div className="flex flex-col sm:flex-row items-center gap-6">
-                                <button className="w-full sm:w-auto bg-gradient-warning text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-amber-500/20 transition-all flex items-center justify-center gap-3 group">
-                                    Launch Application
+                                <Link to="/download" className="w-full sm:w-auto bg-gradient-warning text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-amber-500/20 transition-all flex items-center justify-center gap-3 group">
+                                    Download for Desktop
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </button>
+                                </Link>
                                 <button className="w-full sm:w-auto bg-white border border-inviteease-border px-10 py-5 rounded-2xl font-bold text-lg hover:bg-inviteease-bgLight transition-all flex items-center justify-center gap-3 shadow-sm text-inviteease-text">
                                     <Star className="w-5 h-5 text-inviteease-warning fill-inviteease-warning" />
                                     View Demo
