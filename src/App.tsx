@@ -6,6 +6,7 @@ const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
 const ContactUs = lazy(() => import('./components/ContactUs'));
 const DownloadPage = lazy(() => import('./components/DownloadPage'));
 const PricingPage = lazy(() => import('./components/PricingPage'));
+const HowItWorks = lazy(() => import('./components/HowItWorks'));
 import './index.css';
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
 
           {/* Pricing Page */}
           <Route path="/pricing" element={<PricingPage />} />
+
+          {/* How It Works Page */}
+          <Route path="/how-it-works" element={<HowItWorks />} />
 
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />

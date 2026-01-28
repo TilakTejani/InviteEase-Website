@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import {
     ArrowRight,
     CheckCircle2,
-    MessageSquare,
-    Layers,
     Zap,
+    Send,
+    FileText,
+    PlayCircle,
+    ImageIcon,
     Shield,
-    Globe,
-    Star,
     ChevronRight
 } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -37,7 +37,7 @@ const LandingPage = () => {
 
                     <div className="hidden md:flex items-center gap-8">
                         <NavLink href="#features">Features</NavLink>
-                        <NavLink href="#how-it-works">How it works</NavLink>
+                        <Link to="/how-it-works" className="text-inviteease-textSecondary hover:text-inviteease-primary font-bold transition-colors">How it works</Link>
                         <Link to="/pricing" className="text-inviteease-textSecondary hover:text-inviteease-primary font-bold transition-colors">Pricing</Link>
                         <Link to="/contact" className="text-inviteease-textSecondary hover:text-inviteease-primary font-bold transition-colors">Contact</Link>
                         <Link to="/download" className="text-inviteease-textSecondary hover:text-inviteease-primary font-bold transition-colors">Download</Link>
@@ -57,14 +57,13 @@ const LandingPage = () => {
                 <div className="max-w-7xl mx-auto px-6 relative">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <motion.div
-                            initial={{ opacity: 0, x: -30 }}
+                            initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
-                            className="max-w-4xl"
                         >
-                            <div className="inline-flex items-center gap-2 bg-inviteease-primary/10 border border-inviteease-primary/20 px-4 py-2 rounded-full mb-10">
-                                <Zap className="w-4 h-4 text-inviteease-primary fill-inviteease-primary" />
-                                <span className="text-inviteease-primary text-xs font-bold tracking-wider uppercase">InviteEase v2.0 is live</span>
+                            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-inviteease-border mb-8 shadow-sm">
+                                <span className="w-2 h-2 bg-inviteease-primary rounded-full animate-pulse"></span>
+                                <span className="text-sm font-bold text-inviteease-textSecondary uppercase tracking-wider">Trusted by 500+ Businesses</span>
                             </div>
 
                             <h1 className="text-6xl md:text-7xl font-bold mb-8 leading-tight tracking-tight text-inviteease-text drop-shadow-[0_4px_24px_rgba(0,0,0,0.1)]">
@@ -82,7 +81,7 @@ const LandingPage = () => {
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                                 <button className="w-full sm:w-auto bg-white border border-inviteease-border px-10 py-5 rounded-2xl font-bold text-lg hover:bg-inviteease-bgLight transition-all flex items-center justify-center gap-3 shadow-sm text-inviteease-text">
-                                    <Star className="w-5 h-5 text-inviteease-warning fill-inviteease-warning" />
+                                    <ImageIcon className="w-5 h-5 text-inviteease-warning fill-inviteease-warning" />
                                     View Demo
                                 </button>
                             </div>
@@ -98,15 +97,17 @@ const LandingPage = () => {
                                 <img
                                     src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
                                     alt="Dashboard Preview"
-                                    className="rounded-[2rem] shadow-lg border border-slate-200"
+                                    className="rounded-[2rem] shadow-2xl border border-white/50"
                                 />
                             </div>
+                            <div className="absolute -top-10 -right-10 w-40 h-40 bg-inviteease-primaryLight/30 rounded-full blur-3xl"></div>
+                            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-amber-500/20 rounded-full blur-3xl"></div>
                         </motion.div>
                     </div>
                 </div>
             </section>
 
-            {/* Features Grid */}
+            {/* Features Section */}
             <section id="features" className="py-32 bg-gradient-main">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-24">
@@ -116,7 +117,7 @@ const LandingPage = () => {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <FeatureCard
-                            icon={<Layers />}
+                            icon={<FileText />}
                             title="Advanced PDF Editor"
                             desc="Professional annotation tools with precise field mapping and layer management for any template."
                         />
@@ -131,12 +132,12 @@ const LandingPage = () => {
                             desc="Upload and use any font files directly to maintain perfect brand consistency across all assets."
                         />
                         <FeatureCard
-                            icon={<Globe />}
+                            icon={<PlayCircle />}
                             title="Multi-filetype Automation"
                             desc="Seamlessly automate campaigns featuring Images, Videos, and PDFs in a unified workflow."
                         />
                         <FeatureCard
-                            icon={<MessageSquare />}
+                            icon={<Send />}
                             title="Dynamic Advanced Captioning"
                             desc="Personalize every message with intelligent data injection and sophisticated text formatting."
                         />
@@ -155,9 +156,9 @@ const LandingPage = () => {
                     <div className="bg-gradient-appbar rounded-[3rem] p-16 text-center border border-inviteease-border shadow-2xl shadow-slate-200">
                         <h2 className="text-5xl font-bold mb-8 text-inviteease-text">Ready to Get Started?</h2>
                         <p className="text-inviteease-textSecondary text-xl mb-12 max-w-2xl mx-auto font-medium">Join thousands of professionals who trust InviteEase for their campaign management needs.</p>
-                        <button className="bg-gradient-warning text-white px-12 py-5 rounded-2xl font-bold text-xl transition-all shadow-xl hover:shadow-amber-500/30 active:scale-95">
+                        <Link to="/download" className="inline-block bg-gradient-warning text-white px-12 py-5 rounded-2xl font-bold text-xl transition-all shadow-xl hover:shadow-amber-500/30 active:scale-95">
                             Start Your Campaign
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -177,7 +178,7 @@ const LandingPage = () => {
                         <p className="text-inviteease-textSecondary text-sm font-medium">© 2026 InviteEase. All rights reserved.</p>
                         <div className="flex flex-wrap justify-center gap-8 text-inviteease-textSecondary font-bold text-sm">
                             <a href="#features" className="hover:text-inviteease-primary transition-colors cursor-pointer">Features</a>
-                            <a href="#how-it-works" className="hover:text-inviteease-primary transition-colors cursor-pointer">Automation</a>
+                            <Link to="/how-it-works" className="hover:text-inviteease-primary transition-colors">Automation</Link>
                             <Link to="/pricing" className="hover:text-inviteease-primary transition-colors">Pricing</Link>
                             <Link to="/contact" className="hover:text-inviteease-primary transition-colors">Contact Support</Link>
                             <a className="hover:text-inviteease-primary transition-colors cursor-pointer">Privacy Policy</a>
