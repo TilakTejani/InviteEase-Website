@@ -120,31 +120,37 @@ const LandingPage = () => {
                             icon={<FileText />}
                             title="Advanced PDF Editor"
                             desc="Professional annotation tools with precise field mapping and layer management for any template."
+                            link="/how-it-works#editor"
                         />
                         <FeatureCard
                             icon={<Zap />}
                             title="Real-time PDF Customisation"
                             desc="Instantly inject dynamic user data and handle on-the-fly page deletion with high-speed automated generation."
+                            link="/how-it-works#customisation"
                         />
                         <FeatureCard
                             icon={<CheckCircle2 />}
                             title="Custom Font Support"
                             desc="Upload and use any font files directly to maintain perfect brand consistency across all assets."
+                            link="/how-it-works#editor"
                         />
                         <FeatureCard
                             icon={<PlayCircle />}
                             title="Multi-filetype Automation"
                             desc="Seamlessly automate campaigns featuring Images, Videos, and PDFs in a unified workflow."
+                            link="/how-it-works#delivery"
                         />
                         <FeatureCard
                             icon={<Send />}
                             title="Dynamic Advanced Captioning"
                             desc="Personalize every message with intelligent data injection and sophisticated text formatting."
+                            link="/how-it-works#data"
                         />
                         <FeatureCard
                             icon={<Shield />}
                             title="Enterprise Security"
                             desc="All local data storage ensures no data is stored outside of your reach, providing total privacy and control."
+                            link="/how-it-works#security"
                         />
                     </div>
                 </div>
@@ -200,9 +206,10 @@ interface FeatureCardProps {
     icon: React.ReactElement;
     title: string;
     desc: string;
+    link?: string;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, desc }) => (
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, desc, link = "/how-it-works" }) => (
     <div className="bg-inviteease-bgLight p-10 rounded-3xl border border-inviteease-border hover:border-inviteease-primary/30 transition-all hover:bg-white hover:shadow-xl hover:shadow-teal-500/5 group">
         <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-teal-500/20 group-hover:scale-110 transition-transform">
             <span className="w-8 h-8 text-white">
@@ -211,7 +218,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, desc }) => (
         </div>
         <h3 className="text-2xl font-bold mb-4 text-inviteease-text">{title}</h3>
         <p className="text-inviteease-textSecondary leading-relaxed font-medium">{desc}</p>
-        <Link to="/how-it-works" className="mt-8 flex items-center text-inviteease-primary font-bold group-hover:gap-2 transition-all cursor-pointer">
+        <Link to={link} className="mt-8 flex items-center text-inviteease-primary font-bold group-hover:gap-2 transition-all cursor-pointer">
             Learn more <ChevronRight className="w-4 h-4" />
         </Link>
     </div>
