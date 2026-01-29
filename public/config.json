@@ -11,9 +11,9 @@
             "windows": ""
         },
         "1.0.0": {
-            "mac_arm": "",
-            "mac_intel": "",
-            "windows": ""
+            "mac_arm": "200MB",
+            "mac_intel": "254MB",
+            "windows": "800MB"
         }
     }
 }
