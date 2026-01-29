@@ -26,7 +26,7 @@ const AdminDashboard = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-inviteease-bgDefault text-inviteease-text flex">
+        <div className="min-h-screen text-inviteease-text flex">
             {/* Sidebar */}
             <aside className={`${sidebarOpen ? 'w-64' : 'w-20'} bg-white border-r border-inviteease-border transition-all duration-300 flex flex-col z-20`}>
                 <div className="p-6 flex items-center gap-4">

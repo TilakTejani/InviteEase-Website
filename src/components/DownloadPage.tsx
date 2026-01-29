@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Cpu, ArrowLeft, Download, Monitor, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowLeft, Download, Monitor } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 import Loader from './Loader';
@@ -180,30 +180,7 @@ const DownloadPage = () => {
                     </motion.div>
                 </div>
 
-                {/* Benefits Grid */}
-                <div className="grid md:grid-cols-3 gap-8 pt-20 border-t border-inviteease-border">
-                    <div className="flex flex-col items-center text-center p-6 bg-white/50 rounded-3xl border border-white">
-                        <div className="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center text-inviteease-primary mb-6">
-                            <Zap size={28} />
-                        </div>
-                        <h3 className="text-xl font-bold mb-2">Native Performance</h3>
-                        <p className="text-inviteease-textSecondary font-medium">Bypass browser limitations with our highly optimized desktop core.</p>
-                    </div>
-                    <div className="flex flex-col items-center text-center p-6 bg-white/50 rounded-3xl border border-white">
-                        <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
-                            <ShieldCheck size={28} />
-                        </div>
-                        <h3 className="text-xl font-bold mb-2">Enterprise Security</h3>
-                        <p className="text-inviteease-textSecondary font-medium">Your data stays local. We prioritize privacy and secure connections.</p>
-                    </div>
-                    <div className="flex flex-col items-center text-center p-6 bg-white/50 rounded-3xl border border-white">
-                        <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 mb-6">
-                            <Cpu size={28} />
-                        </div>
-                        <h3 className="text-xl font-bold mb-2">Full System Access</h3>
-                        <p className="text-inviteease-textSecondary font-medium">Seamlessly access your local files and automate workflows efficiently.</p>
-                    </div>
-                </div>
+
             </main>
 
             {/* Simple Footer */}

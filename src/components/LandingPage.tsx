@@ -213,7 +213,7 @@ const LandingPage = () => {
                         </div>
                     </div>
                     <BrandLogo size="lg" className="mb-4" />
-                    <p className="text-inviteease-textSecondary mb-16 max-w-lg mx-auto font-medium">Professional Campaign Management Platform</p>
+                    <p className="text-inviteease-textSecondary mb-16 max-w-lg mx-auto font-medium">Professional Event Campaign Management Platform</p>
 
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-inviteease-border pt-12">
                         <p className="text-inviteease-textSecondary text-sm font-medium">© 2026 InviteEase. All rights reserved.</p>

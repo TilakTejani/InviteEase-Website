@@ -5,7 +5,7 @@ import BrandLogo from './BrandLogo';
 
 const ContactUs = () => {
     return (
-        <div className="min-h-screen bg-inviteease-bgDefault text-inviteease-text">
+        <div className="min-h-screen text-inviteease-text">
             {/* Header / Nav */}
             <nav className="p-6">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
