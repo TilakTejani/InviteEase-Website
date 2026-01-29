@@ -9,8 +9,9 @@ const CONFIG_URL = 'https://raw.githubusercontent.com/TilakTejani/InviteEase-Web
 const DownloadPage = () => {
     const [config, setConfig] = useState({
         version: '1.0.0',
-        mac_arm: 'https://github.com/TilakTejani/InviteEase-Website/releases/download/1.0.0/InviteEaseDesktop-1.0.0-arm64.dmg',
-        mac_intel: 'https://github.com/TilakTejani/InviteEase-Website/releases/download/1.0.0/InviteEaseDesktop-1.0.0.dmg'
+        min_version: '1.0.0',
+        mac_arm: 'https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}-arm64.dmg',
+        mac_intel: 'https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}.dmg'
     });
 
     useEffect(() => {
@@ -30,7 +31,8 @@ const DownloadPage = () => {
     }, []);
 
     const handleDownload = (url: string) => {
-        window.location.href = url;
+        const processedUrl = url.replace(/{version}/g, config.version);
+        window.location.href = processedUrl;
     };
 
     return (
