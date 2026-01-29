@@ -14,10 +14,25 @@ import BrandLogo from './BrandLogo';
 
 const LandingPage = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [config, setConfig] = useState<any>(null);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
         window.addEventListener('scroll', handleScroll);
+
+        const fetchConfig = async () => {
+            try {
+                const response = await fetch('https://raw.githubusercontent.com/TilakTejani/InviteEase-Website/main/public/config.json?t=' + Date.now());
+                if (response.ok) {
+                    const data = await response.json();
+                    setConfig(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch config:', error);
+            }
+        };
+        fetchConfig();
+
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -74,11 +89,16 @@ const LandingPage = () => {
                                 Transform your invitation campaigns with our powerful PDF annotation tools, automated WhatsApp delivery, and comprehensive analytics dashboard.
                             </p>
 
-                            <div className="flex flex-col sm:flex-row items-center gap-6">
+                            <div className="flex flex-col items-center gap-4">
                                 <Link to="/download" className="w-full sm:w-auto bg-gradient-warning text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-amber-500/20 transition-all flex items-center justify-center gap-3 group">
                                     <img src="/apple-icon.png" className="w-6 h-6 object-contain brightness-0 invert" alt="Apple" />
                                     Download for Desktop
                                 </Link>
+                                {config && (
+                                    <p className="text-sm font-semibold text-inviteease-textSecondary">
+                                        Version {config.latest_version} • {config.sizes?.[config.latest_version]?.mac_arm || '65MB'} • .dmg
+                                    </p>
+                                )}
                             </div>
                         </motion.div>
 

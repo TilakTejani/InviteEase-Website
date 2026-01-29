@@ -108,17 +108,25 @@ const DownloadPage = () => {
                         <div className="flex flex-col gap-4">
                             <button
                                 onClick={() => handleDownload(config.mac_arm)}
-                                className="w-full bg-slate-900 hover:bg-black text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-slate-900/10 active:scale-[0.98]"
+                                disabled={!config.sizes[config.latest_version]?.mac_arm}
+                                className={`w-full font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg active:scale-[0.98] ${!config.sizes[config.latest_version]?.mac_arm
+                                        ? 'bg-slate-200 text-slate-400 cursor-not-allowed border-none shadow-none'
+                                        : 'bg-slate-900 hover:bg-black text-white shadow-slate-900/10'
+                                    }`}
                             >
-                                <img src="/apple-icon.png" className="w-5 h-5 object-contain brightness-0 invert" alt="Apple" />
-                                Apple Silicon (M1/M2/M3)
+                                <img src="/apple-icon.png" className={`w-5 h-5 object-contain ${config.sizes[config.latest_version]?.mac_arm ? 'brightness-0 invert' : 'opacity-20'}`} alt="Apple" />
+                                {config.sizes[config.latest_version]?.mac_arm ? 'Apple Silicon (M1/M2/M3)' : 'Not supporting OS'}
                             </button>
                             <button
                                 onClick={() => handleDownload(config.mac_intel)}
-                                className="w-full bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-50 font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all active:scale-[0.98]"
+                                disabled={!config.sizes[config.latest_version]?.mac_intel}
+                                className={`w-full font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all active:scale-[0.98] ${!config.sizes[config.latest_version]?.mac_intel
+                                        ? 'bg-slate-50 text-slate-300 border-slate-200 cursor-not-allowed'
+                                        : 'bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-50'
+                                    }`}
                             >
-                                <img src="/apple-icon.png" className="w-5 h-5 object-contain" alt="Apple" />
-                                Intel Chip
+                                <img src="/apple-icon.png" className={`w-5 h-5 object-contain ${config.sizes[config.latest_version]?.mac_intel ? '' : 'opacity-20'}`} alt="Apple" />
+                                {config.sizes[config.latest_version]?.mac_intel ? 'Intel Chip' : 'Not supporting OS'}
                             </button>
                         </div>
                         <p className="mt-6 text-center text-sm text-inviteease-textSecondary font-medium">Version {config.latest_version} • {config.sizes[config.latest_version]?.mac_arm || '65MB'} • .dmg</p>
@@ -147,10 +155,14 @@ const DownloadPage = () => {
                         </p>
                         <button
                             onClick={() => handleDownload(config.windows)}
-                            className="w-full bg-inviteease-primary hover:bg-inviteease-primaryLight text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-teal-700/10 active:scale-[0.98]"
+                            disabled={!config.sizes[config.latest_version]?.windows}
+                            className={`w-full font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg active:scale-[0.98] ${!config.sizes[config.latest_version]?.windows
+                                    ? 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-none'
+                                    : 'bg-inviteease-primary hover:bg-inviteease-primaryLight text-white shadow-teal-700/10'
+                                }`}
                         >
                             <Download size={20} />
-                            Download for Windows (.exe)
+                            {config.sizes[config.latest_version]?.windows ? 'Download for Windows (.exe)' : 'Not supporting OS'}
                         </button>
                         <p className="mt-4 text-center text-sm text-inviteease-textSecondary font-medium">Version {config.latest_version} • {config.sizes[config.latest_version]?.windows || '58MB'} • .exe</p>
                     </motion.div>
