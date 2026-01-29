@@ -11,13 +11,21 @@ const DownloadPage = () => {
         latest_version: '1.0.0',
         min_required_version: '1.0.0',
         mac_arm: 'https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}-arm64.dmg',
-        mac_intel: 'https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}.dmg'
+        mac_intel: 'https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}.dmg',
+        windows: 'https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}.exe',
+        sizes: {
+            '1.0.0': {
+                mac_arm: '65MB',
+                mac_intel: '65MB',
+                windows: '58MB'
+            }
+        }
     });
 
     useEffect(() => {
         const fetchConfig = async () => {
             try {
-                const response = await fetch(CONFIG_URL);
+                const response = await fetch(`${CONFIG_URL}?t=${Date.now()}`);
                 if (response.ok) {
                     const data = await response.json();
                     setConfig(data);
@@ -30,9 +38,21 @@ const DownloadPage = () => {
         fetchConfig();
     }, []);
 
-    const handleDownload = (url: string) => {
+    const handleDownload = async (url: string) => {
         const processedUrl = url.replace(/{version}/g, config.latest_version);
-        window.location.href = processedUrl;
+        try {
+            // Check if the file exists before redirecting
+            const response = await fetch(processedUrl, { method: 'HEAD' });
+            if (response.status === 404) {
+                alert("No downloadable file available for this version yet.");
+                return;
+            }
+            window.location.href = processedUrl;
+        } catch (error) {
+            console.error('Failed to verify download link:', error);
+            // Fallback: try to download anyway if HEAD request fails (e.g. CORS)
+            window.location.href = processedUrl;
+        }
     };
 
     return (
@@ -101,7 +121,7 @@ const DownloadPage = () => {
                                 Intel Chip
                             </button>
                         </div>
-                        <p className="mt-6 text-center text-sm text-inviteease-textSecondary font-medium">Version {config.latest_version} • 65MB • .dmg</p>
+                        <p className="mt-6 text-center text-sm text-inviteease-textSecondary font-medium">Version {config.latest_version} • {config.sizes[config.latest_version]?.mac_arm || '65MB'} • .dmg</p>
                     </motion.div>
 
                     {/* Windows Download */}
@@ -132,7 +152,7 @@ const DownloadPage = () => {
                             <Download size={20} />
                             Download for Windows (.exe)
                         </button>
-                        <p className="mt-4 text-center text-sm text-inviteease-textSecondary font-medium">Version {config.latest_version} • 58MB</p>
+                        <p className="mt-4 text-center text-sm text-inviteease-textSecondary font-medium">Version {config.latest_version} • {config.sizes[config.latest_version]?.windows || '58MB'} • .exe</p>
                     </motion.div>
                 </div>
 
