@@ -7,8 +7,8 @@
     "sizes": {
         "2.0.0": {
             "mac_arm": "202MB",
-            "mac_intel": "",
-            "windows": ""
+            "mac_intel": "100MB",
+            "windows": "400MB"
         },
         "1.0.0": {
             "mac_arm": "200MB",
