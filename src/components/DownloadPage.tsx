@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Apple, Cpu, ArrowLeft, Download, Monitor, ShieldCheck, Zap } from 'lucide-react';
+import { Cpu, ArrowLeft, Download, Monitor, ShieldCheck, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 
@@ -76,10 +76,10 @@ const DownloadPage = () => {
                         className="bg-white p-10 rounded-[2.5rem] border border-inviteease-border shadow-xl shadow-slate-200/50 hover:shadow-2xl transition-all group relative overflow-hidden"
                     >
                         <div className="absolute top-0 right-0 p-8 opacity-5">
-                            <Apple size={120} />
+                            <img src="/apple-icon.png" className="w-[120px] h-[120px] object-contain" alt="Apple" />
                         </div>
                         <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mb-8 text-white group-hover:scale-110 transition-transform">
-                            <Apple size={32} />
+                            <img src="/apple-icon.png" className="w-8 h-8 object-contain brightness-0 invert" alt="Apple" />
                         </div>
                         <h2 className="text-3xl font-bold mb-4">macOS</h2>
                         <p className="text-inviteease-textSecondary mb-8 text-lg font-medium leading-relaxed">
@@ -90,14 +90,14 @@ const DownloadPage = () => {
                                 onClick={() => handleDownload(config.mac_arm)}
                                 className="w-full bg-slate-900 hover:bg-black text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-slate-900/10 active:scale-[0.98]"
                             >
-                                <Download size={20} />
+                                <img src="/apple-icon.png" className="w-5 h-5 object-contain brightness-0 invert" alt="Apple" />
                                 Apple Silicon (M1/M2/M3)
                             </button>
                             <button
                                 onClick={() => handleDownload(config.mac_intel)}
                                 className="w-full bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-50 font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all active:scale-[0.98]"
                             >
-                                <Download size={20} />
+                                <img src="/apple-icon.png" className="w-5 h-5 object-contain" alt="Apple" />
                                 Intel Chip
                             </button>
                         </div>

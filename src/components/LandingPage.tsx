@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import {
-    ArrowRight,
     CheckCircle2,
     Zap,
     Send,
@@ -77,8 +76,8 @@ const LandingPage = () => {
 
                             <div className="flex flex-col sm:flex-row items-center gap-6">
                                 <Link to="/download" className="w-full sm:w-auto bg-gradient-warning text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-amber-500/20 transition-all flex items-center justify-center gap-3 group">
+                                    <img src="/apple-icon.png" className="w-6 h-6 object-contain brightness-0 invert" alt="Apple" />
                                     Download for Desktop
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>
                         </motion.div>
