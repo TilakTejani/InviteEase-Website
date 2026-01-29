@@ -1,9 +1,38 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Apple, Cpu, ArrowLeft, Download, Monitor, ShieldCheck, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 
+const CONFIG_URL = 'https://raw.githubusercontent.com/TilakTejani/InviteEase-Website/main/public/config.json';
+
 const DownloadPage = () => {
+    const [config, setConfig] = useState({
+        version: '1.0.0',
+        mac_arm: 'https://github.com/TilakTejani/InviteEase-Website/releases/download/1.0.0/InviteEaseDesktop-1.0.0-arm64.dmg',
+        mac_intel: 'https://github.com/TilakTejani/InviteEase-Website/releases/download/1.0.0/InviteEaseDesktop-1.0.0.dmg'
+    });
+
+    useEffect(() => {
+        const fetchConfig = async () => {
+            try {
+                const response = await fetch(CONFIG_URL);
+                if (response.ok) {
+                    const data = await response.json();
+                    setConfig(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch download config:', error);
+            }
+        };
+
+        fetchConfig();
+    }, []);
+
+    const handleDownload = (url: string) => {
+        window.location.href = url;
+    };
+
     return (
         <div className="min-h-screen bg-inviteease-bgDefault text-inviteease-text selection:bg-inviteease-primary/20">
             {/* Navigation */}
@@ -55,16 +84,22 @@ const DownloadPage = () => {
                             Optimized for Apple Silicon (M1/M2/M3) and Intel Macs. Requires macOS 11.0 or later.
                         </p>
                         <div className="flex flex-col gap-4">
-                            <button className="w-full bg-slate-900 hover:bg-black text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-slate-900/10 active:scale-[0.98]">
+                            <button
+                                onClick={() => handleDownload(config.mac_arm)}
+                                className="w-full bg-slate-900 hover:bg-black text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-slate-900/10 active:scale-[0.98]"
+                            >
                                 <Download size={20} />
                                 Apple Silicon (M1/M2/M3)
                             </button>
-                            <button className="w-full bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-50 font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all active:scale-[0.98]">
+                            <button
+                                onClick={() => handleDownload(config.mac_intel)}
+                                className="w-full bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-50 font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all active:scale-[0.98]"
+                            >
                                 <Download size={20} />
                                 Intel Chip
                             </button>
                         </div>
-                        <p className="mt-6 text-center text-sm text-inviteease-textSecondary font-medium">Version 2.0.4 • 65MB • .dmg</p>
+                        <p className="mt-6 text-center text-sm text-inviteease-textSecondary font-medium">Version {config.version} • 65MB • .dmg</p>
                     </motion.div>
 
                     {/* Windows Download */}
@@ -92,7 +127,7 @@ const DownloadPage = () => {
                             <Download size={20} />
                             Download for Windows (.exe)
                         </button>
-                        <p className="mt-4 text-center text-sm text-inviteease-textSecondary font-medium">Version 2.0.4 • 58MB</p>
+                        <p className="mt-4 text-center text-sm text-inviteease-textSecondary font-medium">Version {config.version} • 58MB</p>
                     </motion.div>
                 </div>
 

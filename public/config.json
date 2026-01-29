@@ -1,0 +1,5 @@
+{
+    "version": "1.0.0",
+    "mac_arm": "https://github.com/TilakTejani/InviteEase-Website/releases/download/1.0.0/InviteEaseDesktop-1.0.0-arm64.dmg",
+    "mac_intel": "https://github.com/TilakTejani/InviteEase-Website/releases/download/1.0.0/InviteEaseDesktop-1.0.0.dmg"
+}
