@@ -3,10 +3,12 @@ import { motion } from 'framer-motion';
 import { Cpu, ArrowLeft, Download, Monitor, ShieldCheck, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
+import Loader from './Loader';
 
 const CONFIG_URL = 'https://raw.githubusercontent.com/TilakTejani/InviteEase-Website/main/public/config.json';
 
 const DownloadPage = () => {
+    const [isLoading, setIsLoading] = useState(true);
     const [config, setConfig] = useState<any>({
         latest_version: '1.0.0',
         min_required_version: '1.0.0',
@@ -32,6 +34,8 @@ const DownloadPage = () => {
                 }
             } catch (error) {
                 console.error('Failed to fetch download config:', error);
+            } finally {
+                setIsLoading(false);
             }
         };
 
@@ -55,8 +59,16 @@ const DownloadPage = () => {
         }
     };
 
+    if (isLoading) {
+        return (
+            <div className="min-h-screen bg-inviteease-bgDefault flex items-center justify-center">
+                <Loader size={120} />
+            </div>
+        );
+    }
+
     return (
-        <div className="min-h-screen bg-inviteease-bgDefault text-inviteease-text selection:bg-inviteease-primary/20">
+        <div className="min-h-screen text-slate-900 selection:bg-teal-50">
             {/* Navigation */}
             <nav className="p-6">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -110,8 +122,8 @@ const DownloadPage = () => {
                                 onClick={() => handleDownload(config.mac_arm)}
                                 disabled={!config.sizes[config.latest_version]?.mac_arm}
                                 className={`w-full font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg active:scale-[0.98] ${!config.sizes[config.latest_version]?.mac_arm
-                                        ? 'bg-slate-200 text-slate-400 cursor-not-allowed border-none shadow-none'
-                                        : 'bg-slate-900 hover:bg-black text-white shadow-slate-900/10'
+                                    ? 'bg-slate-200 text-slate-400 cursor-not-allowed border-none shadow-none'
+                                    : 'bg-slate-900 hover:bg-black text-white shadow-slate-900/10'
                                     }`}
                             >
                                 <img src="/apple-icon.png" className={`w-5 h-5 object-contain ${config.sizes[config.latest_version]?.mac_arm ? 'brightness-0 invert' : 'opacity-20'}`} alt="Apple" />
@@ -121,8 +133,8 @@ const DownloadPage = () => {
                                 onClick={() => handleDownload(config.mac_intel)}
                                 disabled={!config.sizes[config.latest_version]?.mac_intel}
                                 className={`w-full font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all active:scale-[0.98] ${!config.sizes[config.latest_version]?.mac_intel
-                                        ? 'bg-slate-50 text-slate-300 border-slate-200 cursor-not-allowed'
-                                        : 'bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-50'
+                                    ? 'bg-slate-50 text-slate-300 border-slate-200 cursor-not-allowed'
+                                    : 'bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-50'
                                     }`}
                             >
                                 <img src="/apple-icon.png" className={`w-5 h-5 object-contain ${config.sizes[config.latest_version]?.mac_intel ? '' : 'opacity-20'}`} alt="Apple" />
@@ -157,8 +169,8 @@ const DownloadPage = () => {
                             onClick={() => handleDownload(config.windows)}
                             disabled={!config.sizes[config.latest_version]?.windows}
                             className={`w-full font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg active:scale-[0.98] ${!config.sizes[config.latest_version]?.windows
-                                    ? 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-none'
-                                    : 'bg-inviteease-primary hover:bg-inviteease-primaryLight text-white shadow-teal-700/10'
+                                ? 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-none'
+                                : 'bg-inviteease-primary hover:bg-inviteease-primaryLight text-white shadow-teal-700/10'
                                 }`}
                         >
                             <Download size={20} />

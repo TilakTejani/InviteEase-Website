@@ -52,7 +52,7 @@ const HowItWorks = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-inviteease-bgDefault text-inviteease-text selection:bg-inviteease-primary/20">
+        <div className="min-h-screen text-inviteease-text selection:bg-inviteease-primary/20">
             {/* Navigation */}
             <nav className="p-6">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
