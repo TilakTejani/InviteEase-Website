@@ -125,7 +125,10 @@ const DownloadPage = () => {
                                 Note: For better performance, minimum 8GB RAM is needed.
                             </span>
                         </p>
-                        <button className="w-full bg-inviteease-primary hover:bg-inviteease-primaryLight text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-teal-700/10 active:scale-[0.98]">
+                        <button
+                            onClick={() => handleDownload(config.windows)}
+                            className="w-full bg-inviteease-primary hover:bg-inviteease-primaryLight text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-teal-700/10 active:scale-[0.98]"
+                        >
                             <Download size={20} />
                             Download for Windows (.exe)
                         </button>

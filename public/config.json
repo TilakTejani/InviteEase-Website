@@ -1,7 +1,7 @@
 {
-    "latest_version": "1.0.0",
+    "latest_version": "2.0.0",
     "min_required_version": "2.0.0",
     "mac_arm": "https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}-arm64.dmg",
     "mac_intel": "https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}.dmg",
-    "windows": "https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}.dmg"
+    "windows": "https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}.exe"
 }
