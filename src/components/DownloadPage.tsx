@@ -7,9 +7,9 @@ import BrandLogo from './BrandLogo';
 const CONFIG_URL = 'https://raw.githubusercontent.com/TilakTejani/InviteEase-Website/main/public/config.json';
 
 const DownloadPage = () => {
-    const [config, setConfig] = useState({
-        version: '1.0.0',
-        min_version: '1.0.0',
+    const [config, setConfig] = useState<any>({
+        latest_version: '1.0.0',
+        min_required_version: '1.0.0',
         mac_arm: 'https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}-arm64.dmg',
         mac_intel: 'https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}.dmg'
     });
@@ -31,7 +31,7 @@ const DownloadPage = () => {
     }, []);
 
     const handleDownload = (url: string) => {
-        const processedUrl = url.replace(/{version}/g, config.version);
+        const processedUrl = url.replace(/{version}/g, config.latest_version);
         window.location.href = processedUrl;
     };
 
@@ -101,7 +101,7 @@ const DownloadPage = () => {
                                 Intel Chip
                             </button>
                         </div>
-                        <p className="mt-6 text-center text-sm text-inviteease-textSecondary font-medium">Version {config.version} • 65MB • .dmg</p>
+                        <p className="mt-6 text-center text-sm text-inviteease-textSecondary font-medium">Version {config.latest_version} • 65MB • .dmg</p>
                     </motion.div>
 
                     {/* Windows Download */}
@@ -129,7 +129,7 @@ const DownloadPage = () => {
                             <Download size={20} />
                             Download for Windows (.exe)
                         </button>
-                        <p className="mt-4 text-center text-sm text-inviteease-textSecondary font-medium">Version {config.version} • 58MB</p>
+                        <p className="mt-4 text-center text-sm text-inviteease-textSecondary font-medium">Version {config.latest_version} • 58MB</p>
                     </motion.div>
                 </div>
 
