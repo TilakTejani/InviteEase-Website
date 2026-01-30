@@ -14,8 +14,8 @@
             "windows": "400MB"
         },
         "1.0.0": {
-            "mac_arm": "200MB",
-            "mac_intel": "254MB",
+            "mac_arm": "211MB",
+            "mac_intel": "204MB",
             "windows": "436MB"
         }
     }
