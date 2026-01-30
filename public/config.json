@@ -4,6 +4,9 @@
     "mac_arm": "https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}-arm64.dmg",
     "mac_intel": "https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}.dmg",
     "windows": "https://github.com/TilakTejani/InviteEase-Website/releases/download/{version}/InviteEaseDesktop-{version}.exe",
+    "support_phone": "+91 9998597136",
+    "support_email": "support@inviteease.it.com",
+    "website_url": "https://inviteease.it.com",
     "sizes": {
         "2.0.0": {
             "mac_arm": "202MB",
