@@ -1,11 +1,54 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, ArrowLeft, Info, Zap, MessageSquare, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 
+const CONFIG_URL = 'https://raw.githubusercontent.com/TilakTejani/InviteEase-Website/main/public/config.json';
+
 const PricingPage = () => {
     const [pricingType, setPricingType] = useState<'credits' | 'unlimited'>('credits');
+    const [creditConsumption, setCreditConsumption] = useState({
+        text_only: 3,
+        media_pdf: 5,
+        personalized_pdf: 7
+    });
+    const [offerConfig, setOfferConfig] = useState({
+        start_date: '2025-01-01',
+        monthly_decrease: 5,
+        total_spots: 99
+    });
+
+    useEffect(() => {
+        const fetchConfig = async () => {
+            try {
+                const response = await fetch(`${CONFIG_URL}?t=${Date.now()}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.credit_consumption) {
+                        setCreditConsumption(data.credit_consumption);
+                    }
+                    if (data.offer_config) {
+                        setOfferConfig(data.offer_config);
+                    }
+                }
+            } catch (error) {
+                console.error('Failed to fetch credit consumption config:', error);
+                // Fallback to default values already set in state
+            }
+        };
+        fetchConfig();
+    }, []);
+
+    const calculateRemainingSpots = () => {
+        const start = new Date(offerConfig.start_date);
+        const now = new Date();
+        const months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+        const decrease = Math.max(0, months * offerConfig.monthly_decrease);
+        return Math.max(0, offerConfig.total_spots - decrease);
+    };
+
+    const remainingSpots = calculateRemainingSpots();
 
     return (
         <div className="min-h-screen text-inviteease-text selection:bg-inviteease-primary/20">
@@ -52,7 +95,7 @@ const PricingPage = () => {
                                     <MessageSquare className="text-inviteease-primary w-5 h-5" />
                                 </div>
                                 <div className="flex items-baseline gap-2">
-                                    <span className="text-2xl font-black text-inviteease-text leading-none">3</span>
+                                    <span className="text-2xl font-black text-inviteease-text leading-none">{creditConsumption.text_only}</span>
                                     <span className="text-[10px] font-bold text-inviteease-textSecondary uppercase tracking-[0.15em] whitespace-nowrap">Credits / Text Only</span>
                                 </div>
                             </div>
@@ -64,7 +107,7 @@ const PricingPage = () => {
                                     <FileText className="text-inviteease-primary w-5 h-5" />
                                 </div>
                                 <div className="flex items-baseline gap-2">
-                                    <span className="text-2xl font-black text-inviteease-text leading-none">5</span>
+                                    <span className="text-2xl font-black text-inviteease-text leading-none">{creditConsumption.media_pdf}</span>
                                     <span className="text-[10px] font-bold text-inviteease-textSecondary uppercase tracking-[0.15em] whitespace-nowrap">Credits / Media & PDF</span>
                                 </div>
                             </div>
@@ -76,7 +119,7 @@ const PricingPage = () => {
                                     <Zap className="text-white w-5 h-5" />
                                 </div>
                                 <div className="flex items-baseline gap-2">
-                                    <span className="text-2xl font-black text-gradient-linear leading-none">7</span>
+                                    <span className="text-2xl font-black text-gradient-linear leading-none">{creditConsumption.personalized_pdf}</span>
                                     <span className="text-[10px] font-bold text-inviteease-primary uppercase tracking-[0.15em] whitespace-nowrap">Credits / Personalised PDF</span>
                                 </div>
                             </div>
@@ -114,7 +157,7 @@ const PricingPage = () => {
                             className="bg-amber-500/10 text-amber-600 px-4 py-2 rounded-lg border border-amber-200 text-sm font-bold flex items-center gap-2"
                         >
                             <Zap size={16} />
-                            Special Offer: Valid only for the first 99 customers!
+                            Special Offer: Valid only for the first {remainingSpots}/{offerConfig.total_spots} customers!
                         </motion.div>
                     )}
                 </div>

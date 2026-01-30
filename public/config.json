@@ -7,6 +7,16 @@
     "support_phone": "+91 9998597136",
     "support_email": "support@inviteease.it.com",
     "website_url": "https://inviteease.it.com",
+    "credit_consumption": {
+        "text_only": 3,
+        "media_pdf": 5,
+        "personalized_pdf": 7
+    },
+    "offer_config": {
+        "start_date": "2025-01-01",
+        "monthly_decrease": 5,
+        "total_spots": 99
+    },
     "sizes": {
         "2.0.0": {
             "mac_arm": "202MB",
