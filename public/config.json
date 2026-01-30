@@ -8,9 +8,9 @@
     "support_email": "support@inviteease.it.com",
     "website_url": "https://inviteease.it.com",
     "credit_consumption": {
-        "text_only": 3,
-        "media_pdf": 5,
-        "personalized_pdf": 7
+        "text_only": 1,
+        "media_pdf": 3,
+        "personalized_pdf": 5
     },
     "offer_config": {
         "start_date": "2025-01-01",
