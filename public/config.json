@@ -12,11 +12,6 @@
         "media_pdf": 3,
         "personalized_pdf": 5
     },
-    "offer_config": {
-        "start_date": "2025-01-01",
-        "monthly_decrease": 5,
-        "total_spots": 99
-    },
     "sizes": {
         "2.0.0": {
             "mac_arm": "202MB",

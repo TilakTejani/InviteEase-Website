@@ -9,14 +9,9 @@ const CONFIG_URL = 'https://raw.githubusercontent.com/TilakTejani/InviteEase-Web
 const PricingPage = () => {
     const [pricingType, setPricingType] = useState<'credits' | 'unlimited'>('credits');
     const [creditConsumption, setCreditConsumption] = useState({
-        text_only: 3,
-        media_pdf: 5,
-        personalized_pdf: 7
-    });
-    const [offerConfig, setOfferConfig] = useState({
-        start_date: '2025-01-01',
-        monthly_decrease: 5,
-        total_spots: 99
+        text_only: 1,
+        media_pdf: 3,
+        personalized_pdf: 5
     });
 
     useEffect(() => {
@@ -28,9 +23,6 @@ const PricingPage = () => {
                     if (data.credit_consumption) {
                         setCreditConsumption(data.credit_consumption);
                     }
-                    if (data.offer_config) {
-                        setOfferConfig(data.offer_config);
-                    }
                 }
             } catch (error) {
                 console.error('Failed to fetch credit consumption config:', error);
@@ -41,11 +33,20 @@ const PricingPage = () => {
     }, []);
 
     const calculateRemainingSpots = () => {
-        const start = new Date(offerConfig.start_date);
+        const start = new Date('2025-06-01');
         const now = new Date();
-        const months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
-        const decrease = Math.max(0, months * offerConfig.monthly_decrease);
-        return Math.max(0, offerConfig.total_spots - decrease);
+        const monthsDiff = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+
+        if (monthsDiff <= 0) return 99;
+
+        // Deterministic 'random' decrease of 1-5 per month
+        let totalDecrease = 0;
+        for (let i = 0; i < monthsDiff; i++) {
+            // (i * 13 + 7) % 5 + 1 gives a consistent but varied sequence of 1-5
+            totalDecrease += ((i * 13 + 7) % 5) + 1;
+        }
+
+        return Math.max(0, 99 - totalDecrease);
     };
 
     const remainingSpots = calculateRemainingSpots();
@@ -150,16 +151,14 @@ const PricingPage = () => {
                         </button>
                     </div>
 
-                    {pricingType === 'unlimited' && (
-                        <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="bg-amber-500/10 text-amber-600 px-4 py-2 rounded-lg border border-amber-200 text-sm font-bold flex items-center gap-2"
-                        >
-                            <Zap size={16} />
-                            Special Offer: Valid only for the first {remainingSpots}/{offerConfig.total_spots} customers!
-                        </motion.div>
-                    )}
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-amber-500/10 text-amber-600 px-4 py-2 rounded-lg border border-amber-200 text-sm font-bold flex items-center gap-2"
+                    >
+                        <Zap size={16} />
+                        Special Offer: Valid only for the first {remainingSpots}/99 customers!
+                    </motion.div>
                 </div>
 
                 <motion.div
