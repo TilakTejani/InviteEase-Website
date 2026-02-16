@@ -1,0 +1,16 @@
+name: Purge CDN Cache
+
+on:
+  push:
+    paths:
+      - 'public/sender_config.json'
+    branches:
+      - main
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge jsDelivr cache
+        run: |
+          curl -s https://purge.jsdelivr.net/gh/TilakTejani/InviteEase-Website@main/public/sender_config.json
