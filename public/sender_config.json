@@ -28,7 +28,7 @@
         "back_and_save_button": "//button[@type='button' and @aria-label='Back']"
     },
     "SCRIPTS": {
-        "send_sequence": [
+        "search_contact": [
             {
                 "action": "wait",
                 "selector": "new_chat_el",
@@ -51,6 +51,36 @@
             {
                 "action": "key",
                 "selector": "number_input_el",
+                "key": "ENTER"
+            },
+            {
+                "action": "sleep",
+                "duration": 3
+            },
+            {
+                "action": "wait",
+                "selector": "message_box",
+                "timeout": 10
+            }
+        ],
+        "send_message": [
+            {
+                "action": "wait",
+                "selector": "message_box",
+                "timeout": 10
+            },
+            {
+                "action": "click",
+                "selector": "message_box"
+            },
+            {
+                "action": "type",
+                "selector": "message_box",
+                "value": "${message}"
+            },
+            {
+                "action": "key",
+                "selector": "message_box",
                 "key": "ENTER"
             }
         ]
