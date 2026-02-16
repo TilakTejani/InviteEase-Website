@@ -1,0 +1,58 @@
+{
+    "EL_ADDRESS": {
+        "new_chat_el": "//span[@data-icon=\"new-chat-outline\"]",
+        "number_input_el": [
+            "//div[@contenteditable=\"true\" and @data-tab=\"3\"]",
+            "//div[@contenteditable=\"true\" and @role=\"textbox\"]",
+            "//p[@data-tab=\"3\"]",
+            "//*[@id=\"app\"]/div/div[3]/div/div[2]/div[1]/span/div/span/div/div[1]/div[2]/div/div/div[1]/p",
+            "//div[@title=\"Search input textbox\"]//div[@contenteditable=\"true\"]"
+        ],
+        "attachment_el": "//span[@data-icon='plus-rounded']",
+        "document_option_el": [
+            "//div[@role='menuitem' and contains(., 'Document')]",
+            "//span[contains(text(), 'Document')]"
+        ],
+        "doc_el": "//input[@accept = '*']",
+        "content_el": "//div[@aria-placeholder='Type a message']",
+        "message_box": "//div[@aria-placeholder='Type a message']",
+        "send_el": "//div[@aria-label=\"Send\"]",
+        "qr_img": "div[data-ref]",
+        "search_input": "div[title='Search input textbox']",
+        "list_el": "/html/body/div[1]/div/div/div[3]/div/div[2]/div[1]/span/div/span/div/div[2]/div/div/div",
+        "profile_details_el": "//div[@title='Profile details']",
+        "profile_section_el": "/html/body/div[1]/div/div/div[3]/div/div[5]/span/div/span/div/div/section",
+        "off_option_el": "//span[text()='Off']/ancestor::label",
+        "disappearing_msg_el": "//span[contains(text(),'Disappearing messages')]",
+        "list_of_names_el": "/html/body/div[1]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/div/span/div/span/div/div[2]/div[2]/div/div/div[2]",
+        "back_and_save_button": "//button[@type='button' and @aria-label='Back']"
+    },
+    "SCRIPTS": {
+        "send_sequence": [
+            {
+                "action": "wait",
+                "selector": "new_chat_el",
+                "timeout": 20
+            },
+            {
+                "action": "click",
+                "selector": "new_chat_el"
+            },
+            {
+                "action": "wait",
+                "selector": "number_input_el",
+                "timeout": 5
+            },
+            {
+                "action": "type",
+                "selector": "number_input_el",
+                "value": "${phone}"
+            },
+            {
+                "action": "key",
+                "selector": "number_input_el",
+                "key": "ENTER"
+            }
+        ]
+    }
+}
