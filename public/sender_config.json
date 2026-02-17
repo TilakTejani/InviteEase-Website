@@ -148,6 +148,11 @@
                 "description": "Clicking attachment button"
             },
             {
+                "action": "wait",
+                "selector": "document_option_el",
+                "timeout": 5
+            },
+            {
                 "action": "click",
                 "selector": "document_option_el",
                 "description": "Selecting Document option"
