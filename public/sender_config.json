@@ -1,6 +1,6 @@
 {
     "EL_ADDRESS": {
-        "new_chat_el": "//button[@aria-label='New dump chat']",
+        "new_chat_el": "//button[@aria-label='New chat']",
         "number_input_el": [
             "//div[@contenteditable=\"true\" and @data-tab=\"3\"]",
             "//div[@contenteditable=\"true\" and @role=\"textbox\"]",
