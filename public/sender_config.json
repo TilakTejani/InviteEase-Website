@@ -83,6 +83,100 @@
                 "selector": "message_box",
                 "key": "ENTER"
             }
+        ],
+        "clear_dialogs": [
+            {
+                "action": "key",
+                "key": "ESCAPE",
+                "description": "Closing any open dialogs"
+            },
+            {
+                "action": "key",
+                "key": "ESCAPE"
+            },
+            {
+                "action": "key",
+                "key": "ESCAPE"
+            }
+        ],
+        "disable_disappearing_message": [
+            {
+                "action": "click",
+                "selector": "profile_details_el",
+                "description": "Opening profile details",
+                "optional": true
+            },
+            {
+                "action": "sleep",
+                "duration": 1,
+                "optional": true
+            },
+            {
+                "action": "click",
+                "selector": "disappearing_msg_el",
+                "description": "Clicking disappearing messages option",
+                "optional": true
+            },
+            {
+                "action": "sleep",
+                "duration": 1,
+                "optional": true
+            },
+            {
+                "action": "click",
+                "selector": "off_option_el",
+                "description": "Turning off disappearing messages",
+                "optional": true
+            },
+            {
+                "action": "click",
+                "selector": "back_and_save_button",
+                "description": "Saving changes",
+                "optional": true
+            },
+            {
+                "action": "key",
+                "key": "ESCAPE",
+                "description": "Closing profile sidebar",
+                "optional": true
+            }
+        ],
+        "send_pdf_flow": [
+            {
+                "action": "click",
+                "selector": "attachment_el",
+                "description": "Clicking attachment button"
+            },
+            {
+                "action": "click",
+                "selector": "document_option_el",
+                "description": "Selecting Document option"
+            },
+            {
+                "action": "type",
+                "selector": "doc_el",
+                "value": "${file_path}",
+                "description": "Uploading file"
+            },
+            {
+                "action": "sleep",
+                "duration": 2
+            },
+            {
+                "action": "type",
+                "selector": "content_el",
+                "value": "${caption}",
+                "description": "Entering caption"
+            },
+            {
+                "action": "click",
+                "selector": "send_el",
+                "description": "Clicking send button"
+            },
+            {
+                "action": "sleep",
+                "duration": 3
+            }
         ]
     }
 }
