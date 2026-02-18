@@ -220,6 +220,33 @@
                 "action": "sleep",
                 "duration": 3
             }
+        ],
+        "stop_flow": [
+            {
+                "action": "key",
+                "key": "ESCAPE",
+                "description": "Escape 1"
+            },
+            {
+                "action": "key",
+                "key": "ESCAPE",
+                "description": "Escape 2"
+            },
+            {
+                "action": "key",
+                "key": "ESCAPE",
+                "description": "Escape 3"
+            },
+            {
+                "action": "key",
+                "key": "ESCAPE",
+                "description": "Escape 4"
+            },
+            {
+                "action": "key",
+                "key": "ESCAPE",
+                "description": "Escape 5"
+            }
         ]
     }
 }
