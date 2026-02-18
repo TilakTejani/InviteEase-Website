@@ -8,15 +8,15 @@
             "//*[@id=\"app\"]/div/div[3]/div/div[2]/div[1]/span/div/span/div/div[1]/div[2]/div/div/div[1]/p",
             "//div[@title=\"Search input textbox\"]//div[@contenteditable=\"true\"]"
         ],
-        "attachment_el": "//span[@data-icon='plus-rounded']",
+        "attachment_el": [
+            "//span[@data-icon='plus-rounded']",
+            "//button[@aria-label='Attach']"
+        ],
         "document_option_el": [
             "//div[@role='menuitem' and contains(., 'Document')]",
             "//span[contains(text(), 'Document')]"
         ],
-        "doc_el": [
-            "//input[@accept = '*']",
-            "//button[@aria-label='Attach']"
-        ],
+        "doc_el": "//input[@accept = '*']",
         "content_el": "//div[@aria-placeholder='Type a message']",
         "message_box": "//div[@aria-placeholder='Type a message']",
         "send_el": "//div[@aria-label=\"Send\"]",
