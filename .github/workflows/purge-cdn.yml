@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'public/sender_config.json'
+      - 'public/config.json'
     branches:
       - main
 
