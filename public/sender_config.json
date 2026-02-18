@@ -13,7 +13,10 @@
             "//div[@role='menuitem' and contains(., 'Document')]",
             "//span[contains(text(), 'Document')]"
         ],
-        "doc_el": "//input[@accept = '*']",
+        "doc_el": [
+            "//input[@accept = '*']",
+            "//button[@aria-label='Attach']"
+        ],
         "content_el": "//div[@aria-placeholder='Type a message']",
         "message_box": "//div[@aria-placeholder='Type a message']",
         "send_el": "//div[@aria-label=\"Send\"]",
@@ -25,107 +28,131 @@
         "off_option_el": "//span[text()='Off']/ancestor::label",
         "disappearing_msg_el": "//span[contains(text(),'Disappearing messages')]",
         "list_of_names_el": "/html/body/div[1]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/div/span/div/span/div/div[2]/div[2]/div/div/div[2]",
-        "back_and_save_button": "//button[@type='button' and @aria-label='Back']"
+        "header_timer_icon": [
+            "//div[@id='main']//span[@data-icon='time-s' or @data-icon='disappearing']",
+            "//div[@id='main']//div[contains(@aria-label, 'disappearing messages on')]"
+        ],
+        "back_and_save_button": "//button[@type='button' and @aria-label='Back']",
+        "close_drawer_el": "//div[@role='button' and @aria-label='Close']"
     },
     "SCRIPTS": {
         "search_contact": [
             {
                 "action": "wait",
                 "selector": "new_chat_el",
-                "timeout": 20
+                "timeout": 20,
+                "description": "wait"
             },
             {
                 "action": "click",
-                "selector": "new_chat_el"
+                "selector": "new_chat_el",
+                "description": "click"
             },
             {
                 "action": "wait",
                 "selector": "number_input_el",
-                "timeout": 5
+                "timeout": 5,
+                "description": "wait"
             },
             {
                 "action": "type",
                 "selector": "number_input_el",
-                "value": "${phone}"
+                "value": "${phone}",
+                "description": "type"
             },
             {
                 "action": "key",
+                "key": "ENTER",
                 "selector": "number_input_el",
-                "key": "ENTER"
+                "description": "key"
             },
             {
                 "action": "sleep",
-                "duration": 3
+                "duration": 3,
+                "description": "sleep"
             },
             {
                 "action": "wait",
                 "selector": "message_box",
-                "timeout": 10
+                "timeout": 10,
+                "description": "wait"
             }
         ],
         "send_message": [
             {
                 "action": "wait",
                 "selector": "message_box",
-                "timeout": 10
+                "timeout": 10,
+                "description": "wait"
             },
             {
                 "action": "click",
-                "selector": "message_box"
+                "selector": "message_box",
+                "description": "click"
             },
             {
                 "action": "type",
                 "selector": "message_box",
-                "value": "${message}"
+                "value": "${message}",
+                "description": "type"
             },
             {
                 "action": "key",
+                "key": "ENTER",
                 "selector": "message_box",
-                "key": "ENTER"
+                "description": "key"
             }
         ],
         "clear_dialogs": [
             {
                 "action": "key",
                 "key": "ESCAPE",
-                "description": "Closing any open dialogs"
+                "description": "Closing any open dialogs",
+                "optional": true
             },
             {
                 "action": "key",
-                "key": "ESCAPE"
+                "key": "ESCAPE",
+                "optional": true
             },
             {
                 "action": "key",
-                "key": "ESCAPE"
+                "key": "ESCAPE",
+                "optional": true
+            }
+        ],
+        "check_disappearing_icon": [
+            {
+                "action": "wait",
+                "selector": "header_timer_icon",
+                "timeout": 2,
+                "description": "Checking if disappearing icon exists"
             }
         ],
         "disable_disappearing_message": [
             {
                 "action": "click",
                 "selector": "profile_details_el",
-                "description": "Opening profile details",
                 "optional": true
             },
             {
                 "action": "sleep",
                 "duration": 1,
-                "optional": true
+                "description": "sleep"
             },
             {
                 "action": "click",
                 "selector": "disappearing_msg_el",
-                "description": "Clicking disappearing messages option",
                 "optional": true
             },
             {
                 "action": "sleep",
                 "duration": 1,
-                "optional": true
+                "description": "sleep"
             },
             {
                 "action": "click",
                 "selector": "off_option_el",
-                "description": "Turning off disappearing messages",
                 "optional": true
             },
             {
@@ -135,13 +162,24 @@
                 "optional": true
             },
             {
+                "action": "click",
+                "selector": "close_drawer_el",
+                "description": "Closing profile sidebar via button",
+                "optional": true
+            },
+            {
                 "action": "key",
                 "key": "ESCAPE",
-                "description": "Closing profile sidebar",
+                "description": "Closing profile sidebar via Key",
                 "optional": true
             }
         ],
         "send_pdf_flow": [
+            {
+                "action": "sleep",
+                "duration": 2,
+                "description": "Waiting for UI to stabilize"
+            },
             {
                 "action": "click",
                 "selector": "attachment_el",
