@@ -5,6 +5,7 @@
             "//div[@contenteditable=\"true\" and @data-tab=\"3\"]",
             "//div[@contenteditable=\"true\" and @role=\"textbox\"]",
             "//p[@data-tab=\"3\"]",
+            "//div[@aria-placeholder='Search name or number']",
             "//*[@id=\"app\"]/div/div[3]/div/div[2]/div[1]/span/div/span/div/div[1]/div[2]/div/div/div[1]/p",
             "//div[@title=\"Search input textbox\"]//div[@contenteditable=\"true\"]"
         ],
