@@ -30,7 +30,10 @@
         "off_option_el": "//span[text()='Off']/ancestor::label",
         "disappearing_msg_el": "//span[contains(text(),'Disappearing messages')]",
         "list_of_names_el": "/html/body/div[1]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/div/span/div/span/div/div[2]/div[2]/div/div/div[2]",
-        "header_timer_icon": "//*[@id='main']/header/div[1]/div/div[1]",
+        "header_timer_icon": [
+            "//title[text()='wds-ic-disappearing-messages']/ancestor::svg",
+            "//*[@id='main']/header/div[1]/div/div[1]"
+        ],
         "back_and_save_button": "//button[@type='button' and @aria-label='Back']",
         "close_drawer_el": "//div[@role='button' and @aria-label='Close']"
     },
@@ -60,10 +63,14 @@
                 "description": "type"
             },
             {
+                "action": "sleep",
+                "duration": 3,
+                "description": "Wait for search results to reliably load in the UI"
+            },
+            {
                 "action": "key",
                 "key": "ENTER",
-                "selector": "number_input_el",
-                "description": "key"
+                "description": "Press ENTER via ActionChains"
             },
             {
                 "action": "sleep",
@@ -187,18 +194,14 @@
             {
                 "action": "wait",
                 "selector": "document_option_el",
-                "timeout": 5
-            },
-            {
-                "action": "click",
-                "selector": "document_option_el",
-                "description": "Selecting Document option"
+                "timeout": 5,
+                "description": "Wait for attachment menu to fully open"
             },
             {
                 "action": "type",
                 "selector": "doc_el",
                 "value": "${file_path}",
-                "description": "Uploading file"
+                "description": "Uploading file via hidden input"
             },
             {
                 "action": "sleep",
