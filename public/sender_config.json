@@ -14,6 +14,11 @@
             "//div[contains(text(), 'Document')]"
         ],
         "doc_el": "//input[@accept = '*']",
+        "doc_el": [
+            "//input[@accept = '*']",
+            "//input[@type='file']",
+            "//input[@type='file' and @accept='*']"
+        ],
         "content_el": "//div[@aria-placeholder='Type a message']",
         "message_box": "//div[@aria-placeholder='Type a message']",
         "send_el": "//button[@aria-label=\"Send\"]",
@@ -25,10 +30,7 @@
         "off_option_el": "//span[text()='Off']/ancestor::label",
         "disappearing_msg_el": "//span[contains(text(),'Disappearing messages')]",
         "list_of_names_el": "/html/body/div[1]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/div/span/div/span/div/div[2]/div[2]/div/div/div[2]",
-        "header_timer_icon": [
-            "//div[@id='main']//span[@data-icon='time-s' or @data-icon='disappearing']",
-            "//div[@id='main']//div[contains(@aria-label, 'disappearing messages on')]"
-        ],
+        "header_timer_icon": "//*[@id='main']/header/div[1]/div/div[1]",
         "back_and_save_button": "//button[@type='button' and @aria-label='Back']",
         "close_drawer_el": "//div[@role='button' and @aria-label='Close']"
     },
@@ -58,14 +60,10 @@
                 "description": "type"
             },
             {
-                "action": "sleep",
-                "duration": 3,
-                "description": "Wait for search results to reliably load in the UI"
-            },
-            {
                 "action": "key",
                 "key": "ENTER",
-                "description": "Press ENTER via ActionChains"
+                "selector": "number_input_el",
+                "description": "key"
             },
             {
                 "action": "sleep",
