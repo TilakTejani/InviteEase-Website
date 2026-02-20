@@ -2,7 +2,7 @@
     "EL_ADDRESS": {
         "new_chat_el": "//button[@aria-label='New chat']",
         "number_input_el": [
-            "//div[@aria-placeholder='name or number']"
+            "//div[@aria-placeholder='Search name or number']"
         ],
         "attachment_el": [
             "//span[@data-icon='plus-rounded']",
@@ -16,7 +16,7 @@
         "doc_el": "//input[@accept = '*']",
         "content_el": "//div[@aria-placeholder='Type a message']",
         "message_box": "//div[@aria-placeholder='Type a message']",
-        "send_el": "//div[@aria-label=\"Send\"]",
+        "send_el": "//button[@aria-label=\"Send\"]",
         "qr_img": "div[data-ref]",
         "search_input": "div[title='Search input textbox']",
         "list_el": "/html/body/div[1]/div/div/div[3]/div/div[2]/div[1]/span/div/span/div/div[2]/div/div/div",
