@@ -58,10 +58,14 @@
                 "description": "type"
             },
             {
+                "action": "sleep",
+                "duration": 3,
+                "description": "Wait for search results to reliably load in the UI"
+            },
+            {
                 "action": "key",
                 "key": "ENTER",
-                "selector": "number_input_el",
-                "description": "key"
+                "description": "Press ENTER via ActionChains"
             },
             {
                 "action": "sleep",
