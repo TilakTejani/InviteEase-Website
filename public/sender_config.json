@@ -21,7 +21,10 @@
         ],
         "content_el": "//div[@aria-placeholder='Type a message']",
         "message_box": "//div[@aria-placeholder='Type a message']",
-        "send_el": "//button[@aria-label=\"Send\"]",
+        "send_el": [
+            "//button[@aria-label=\"Send\"]",
+            "div[@arial-label='Send' @role='button']"
+        ],
         "qr_img": "div[data-ref]",
         "search_input": "div[title='Search input textbox']",
         "list_el": "/html/body/div[1]/div/div/div[3]/div/div[2]/div[1]/span/div/span/div/div[2]/div/div/div",
