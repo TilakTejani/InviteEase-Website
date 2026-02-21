@@ -23,7 +23,7 @@
         "message_box": "//div[@aria-placeholder='Type a message']",
         "send_el": [
             "//button[@aria-label=\"Send\"]",
-            "div[@arial-label='Send' @role='button']"
+            "//div[@arial-label='Send' @role='button']"
         ],
         "qr_img": "div[data-ref]",
         "search_input": "div[title='Search input textbox']",
