@@ -15,13 +15,18 @@
         ],
         "doc_el": [
             "//input[@accept='*']",
-            "//input[@type='file' and @accept='*']"
+            "//input[@type='file' and not(contains(@accept, 'image'))]",
+            "//input[@type='file']"
         ],
-        "content_el": "//div[@aria-placeholder='Type a message']",
+        "content_el": [
+            "(//div[@aria-placeholder='Add a caption'])[last()]",
+            "(//div[@aria-placeholder='Type a message'])[last()]"
+        ],
         "message_box": "//div[@aria-placeholder='Type a message']",
         "send_el": [
-            "//button[@aria-label='Send']",
-            "//div[@aria-label='Send' and @role='button']"
+            "(//span[@data-icon='send'])[last()]",
+            "(//button[@aria-label='Send'])[last()]",
+            "(//div[@aria-label='Send' and @role='button'])[last()]"
         ],
         "qr_img": "div[data-ref]",
         "search_input": "div[title='Search input textbox']",
