@@ -14,8 +14,7 @@
             "//div[contains(text(), 'Document')]"
         ],
         "doc_el": [
-            "//input[@accept = '*']",
-            "//input[@type='file']",
+            "//input[@accept='*']",
             "//input[@type='file' and @accept='*']"
         ],
         "content_el": "//div[@aria-placeholder='Type a message']",
