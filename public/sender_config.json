@@ -13,7 +13,6 @@
             "//span[contains(text(), 'Document')]",
             "//div[contains(text(), 'Document')]"
         ],
-        "doc_el": "//input[@accept = '*']",
         "doc_el": [
             "//input[@accept = '*']",
             "//input[@type='file']",
