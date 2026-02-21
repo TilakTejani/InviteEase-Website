@@ -194,10 +194,21 @@
                 "description": "Clicking attachment button"
             },
             {
+                "action": "sleep",
+                "duration": 1.5,
+                "description": "Wait for CSS animation of menu opening and hidden doc_el input to mount"
+            },
+            {
                 "action": "wait",
                 "selector": "document_option_el",
                 "timeout": 5,
                 "description": "Wait for attachment menu to fully open"
+            },
+            {
+                "action": "wait",
+                "selector": "doc_el",
+                "timeout": 5,
+                "description": "Ensure hidden file input is actually mounted before interacting"
             },
             {
                 "action": "type",
