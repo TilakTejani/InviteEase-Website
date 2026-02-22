@@ -89,13 +89,13 @@ const LandingPage = () => {
                         >
 
 
-                            <h1 className="text-6xl md:text-7xl font-bold mb-8 leading-tight tracking-tight text-inviteease-text drop-shadow-[0_4px_24px_rgba(0,0,0,0.1)] mt-12">
-                                Professional <br />
-                                <span className="text-gradient-linear">Campaign</span> Platform
+                            <h1 className="text-5xl md:text-6xl font-bold mb-8 leading-tight tracking-tight text-inviteease-text drop-shadow-[0_4px_24px_rgba(0,0,0,0.1)] mt-12">
+                                Automated Invitation <br />
+                                <span className="text-gradient-linear">Customisation</span> & Sender
                             </h1>
 
                             <p className="text-xl text-inviteease-textSecondary mb-12 max-w-xl leading-relaxed font-medium">
-                                Transform your invitation campaigns with our powerful PDF annotation tools, automated WhatsApp delivery, and comprehensive analytics dashboard.
+                                Transform your events with our powerful annotation tools, automated invitation delivery in any format (customised PDFs, videos, images, and text), and comprehensive analytics dashboard.
                             </p>
 
                             <div className="flex flex-col items-center gap-4">
@@ -171,8 +171,8 @@ const LandingPage = () => {
                         />
                         <FeatureCard
                             icon={<PlayCircle />}
-                            title="Multi-filetype Automation"
-                            desc="Seamlessly automate campaigns featuring Images, Videos, and PDFs in a unified workflow."
+                            title="Multi-format Automation"
+                            desc="Seamlessly automate the delivery of customised PDFs, Videos, Images, and text in a unified workflow."
                             link="/how-it-works#delivery"
                         />
                         <FeatureCard
