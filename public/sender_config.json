@@ -13,20 +13,16 @@
             "//span[contains(text(), 'Document')]",
             "//div[contains(text(), 'Document')]"
         ],
-        "doc_el": [
-            "//input[@accept='*']",
-            "//input[@type='file' and not(contains(@accept, 'image'))]",
-            "//input[@type='file']"
-        ],
+        "doc_el": "//input[@accept='*']",
         "content_el": [
-            "(//div[@aria-placeholder='Add a caption'])[last()]",
-            "(//div[@aria-placeholder='Type a message'])[last()]"
+            "//div[@aria-placeholder='Add a caption']",
+            "//div[@title='Type a message' and ancestor::div[@role='dialog']]",
+            "//div[@aria-placeholder='Type a message']"
         ],
         "message_box": "//div[@aria-placeholder='Type a message']",
         "send_el": [
-            "(//span[@data-icon='send'])[last()]",
-            "(//button[@aria-label='Send'])[last()]",
-            "(//div[@aria-label='Send' and @role='button'])[last()]"
+            "//span[@data-icon='send']/ancestor::div[@role='button']",
+            "//div[@aria-label='Send' and @role='button']"
         ],
         "qr_img": "div[data-ref]",
         "search_input": "div[title='Search input textbox']",
@@ -198,21 +194,21 @@
                 "description": "Clicking attachment button"
             },
             {
-                "action": "sleep",
-                "duration": 1.5,
-                "description": "Wait for CSS animation of menu opening and hidden doc_el input to mount"
-            },
-            {
                 "action": "wait",
                 "selector": "document_option_el",
                 "timeout": 5,
                 "description": "Wait for attachment menu to fully open"
             },
             {
+                "action": "click",
+                "selector": "document_option_el",
+                "description": "Clicking Document option"
+            },
+            {
                 "action": "wait",
                 "selector": "doc_el",
                 "timeout": 5,
-                "description": "Ensure hidden file input is actually mounted before interacting"
+                "description": "Wait for file input"
             },
             {
                 "action": "type",
